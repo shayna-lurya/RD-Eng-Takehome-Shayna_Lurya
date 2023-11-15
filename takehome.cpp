@@ -1,16 +1,17 @@
+
 /*
 This program is supplement to the Programming Exercise "Find Closest Shape" here:
 https://mail.google.com/mail/u/0/#inbox/FMfcgzGwHflsSfCDWbnZnXmprLXfdQCM?projector=1&messagePartId=0.1
 
-Here we complete a portion of Step 1: 
+Here we complete a portion of Step 1:
  - Generate a 2D matrix of a size determined by user input.
- - Initialize number of shapes to be printed in the matrix. 
+ - Initialize number of shapes to be printed in the matrix.
  - The matrix is populated with a random distribution of 1's and 0's.
 
 Notes:
 - The implementation is not complete, but I am prepared to discuss the potential solutions during the interview!
 - I aim to demonstrate my understanding of object oriented programming, data structures, and algorithms.
-- This file should be split into .h and .cpp files. 
+- This file should be split into .h and .cpp files.
 - Sources: I reviewed lecture slides from my CS curriculum at UCLA: http://careynachenberg.weebly.com/cs-slides.html
 */
 
@@ -45,7 +46,7 @@ void displayMatrix(const vector<vector<int> > &matrix)
 
 // Test that a shape is in a straight line:
 // If the number of unique values in both X and Y coordinates is 1 or less, then the line is straight.
-// This doesn't work right now because it doesn't actually access the value of the points. 
+// This doesn't work right now because it doesn't actually access the value of the points.
 bool isShapeStraightLine(const vector<Point> &points)
 {
     unordered_set<int> xCoords;
@@ -61,14 +62,15 @@ bool isShapeStraightLine(const vector<Point> &points)
         yCoords.insert(point.y);
     }
 
+    // Does not work, always returns true.
     if (xCoords.size() > 1 && yCoords.size() > 1)
     { // Not a straight line
-        cout << "The shape is not in a straight line." << endl;
+        cout << "This sample shape is not in a straight line." << endl;
         return false;
     }
     else
     {
-        cout << "The shape is in a straight line" << endl;
+        cout << "This sample shape is in a straight line" << endl;
         return true;
     }
 };
@@ -103,7 +105,7 @@ int main()
     int max_num_shapes = (width * height) / 4;
     cout << "Enter the number of shapes. Value must be between 1 and " << max_num_shapes << ": ";
     cin >> shapes;
-   
+
     while (shapes > max_num_shapes)
     {
         cout << "Invalid input. Value must be between 1 and " << max_num_shapes << ":" << endl;
@@ -117,7 +119,7 @@ int main()
     // We could have a vector of point vectors to represent shapes.
     vector<vector<Point> > shapeVector;
     vector<Point> shape;
-    
+
     vector<vector<int> > matrix(height, vector<int>(width, 0));
 
     for (int i = 0; i < height; ++i)
@@ -154,7 +156,7 @@ int main()
          // int filter[3][3] = {{0, 1, 0},
         //                     {1, -1, 1},
         //                     {0, 1, 0}};
-    
+
 
     // Tests
     // isShapeStraightLine should return true if the shape is straight, false if it is not.
@@ -176,13 +178,13 @@ int main()
 
     //Initialize matrix and call function.
 
-        
+
     for(int i=0; i<3; i++){
             for(int j = 0; j < 3; j++){
                 if(j==1){
                     notStraight.push_back(Point(i,j,1));
                     shapeNotStraight[i][j] = 1;
-                
+
                 }
             }
         }
@@ -191,7 +193,7 @@ int main()
 
     isShapeStraightLine(notStraight);
     displayMatrix(shapeNotStraight);
-    
+
     // Generate straight vertical line 3x3 matrix.
     // Straight line:
     // {{0,1,0},
@@ -205,7 +207,7 @@ int main()
                     Straight.push_back(Point(i,j,1));
                     shapeStraight[i][j] = 1;
                 }
-                
+
             }
         }
 
